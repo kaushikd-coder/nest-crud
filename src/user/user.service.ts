@@ -54,6 +54,13 @@ export class UserService {
         }
     }
 
+    async findByEmail(email:string){
+        const user = await this.userModel.findOne({
+            email: email
+        })
+        return user;
+    }
+
     async deleteUser(id:string){
         const deleteUser = await this.userModel.findByIdAndDelete(id);
 
